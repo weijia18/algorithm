@@ -27,7 +27,6 @@ function countOne(n){
                 break
             }
         }
-        quotient = -n
         while (quotient !== 0) {
             remainder = quotient % 2
             quotient = Math.floor(quotient/2)
@@ -36,9 +35,9 @@ function countOne(n){
             }
         }
         /**
-         * (32 - firstOneIndex) - (oneNums - 1) + 1
+         * (32 - firstOneIndex) - (oneNums) + 1
          */
-        oneNums = (34 - firstOneIndex - oneNums)
+        oneNums = (33 - firstOneIndex - oneNums)
     }
     return oneNums
 }
