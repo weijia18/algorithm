@@ -34,4 +34,5 @@
             resPointer = resPointer.next
         }
     }
+    return resHead
  }
