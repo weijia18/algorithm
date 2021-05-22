@@ -5,7 +5,7 @@
 var Stack = require("../stack/index.js")
 
 function reverseLinklist(head){
-    let  p = head
+    let  p = head.next
     let  stack = new Stack([])
     while (p != null) {
         stack.push(p)
