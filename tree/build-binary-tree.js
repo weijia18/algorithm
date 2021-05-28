@@ -1,7 +1,7 @@
-function TreeNode(val){
+/* function TreeNode(val){
     this.val = val
     this.left = this.right = null
-}
+} */
 
 /**
  * 先序遍历和中序遍历列表重构二叉树
