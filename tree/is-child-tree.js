@@ -1,4 +1,4 @@
-let BinaryTree = require('./binary-tree.js')
+let BinaryTree = require('./binary-search-tree.js')
 
 
 function isChildTree(treeP, treeC){

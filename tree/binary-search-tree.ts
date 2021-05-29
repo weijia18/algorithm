@@ -1,8 +1,8 @@
 import TreeNode from './tree-node'
 
 class BinarySearchTree{
-    root:TreeNode;
-    constructor(root: TreeNode){
+    root:TreeNode | null;
+    constructor(root: TreeNode | null){
         this.root = root
     }
 
@@ -18,7 +18,7 @@ class BinarySearchTree{
         p = node
     }
 
-    preOrder(root : TreeNode){
+    preOrder(root : TreeNode | null){
         if(root){
             this.preOrder(root.left)
             console.log(root.val + '>')
@@ -26,7 +26,7 @@ class BinarySearchTree{
         }
     }
 
-    inOrder(root : TreeNode){
+    inOrder(root : TreeNode | null){
         if(root){
             this.inOrder(root.left)
             console.log(root.val + '>')
