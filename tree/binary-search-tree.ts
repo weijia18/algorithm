@@ -1,27 +1,54 @@
+import { assert } from 'console';
 import TreeNode from './tree-node'
 
 class BinarySearchTree{
     root:TreeNode | null;
-    constructor(root: TreeNode | null){
-        this.root = root
+    constructor(){
+        this.root = null
     }
 
-    insert(node : TreeNode){
-        let p = this.root
+    insert(val : Number){
+        let node:TreeNode | null = new TreeNode(val)
+        if(!this.root){
+            this.root = node
+            return true
+        }
+        let p:TreeNode | null = this.root
+        let q:TreeNode | null = null
+        /**
+         * 下面这种方法p是p（上一个p）.left的深拷贝，改变p不会改变p（上一个p）.left
+         */
+        /* while(p !== null){
+            if(node.val > p.val){
+                p = p.right
+                console.log(p)
+            }else{
+                p = p.left
+            }
+        }
+        p = node */
         while(p !== null){
+            q = p
             if(node.val > p.val){
                 p = p.right
             }else{
                 p = p.left
             }
         }
-        p = node
+        if(q){
+            if(node.val > q.val){
+                q.right = node
+            }else{
+                q.left = node
+            }
+        }
+        return true
     }
 
     preOrder(root : TreeNode | null){
         if(root){
-            this.preOrder(root.left)
             console.log(root.val + '>')
+            this.preOrder(root.left)
             this.preOrder(root.right)
         }
     }
@@ -35,13 +62,13 @@ class BinarySearchTree{
     }
 }
 
-let root = new TreeNode(6)
-let binarySearchTree = new BinarySearchTree(root)
-binarySearchTree.insert(new TreeNode(4))
-binarySearchTree.insert(new TreeNode(7))
-binarySearchTree.insert(new TreeNode(1))
-binarySearchTree.insert(new TreeNode(2))
-binarySearchTree.insert(new TreeNode(3))
-binarySearchTree.insert(new TreeNode(8))
+let binarySearchTree = new BinarySearchTree()
+binarySearchTree.insert(6)
+binarySearchTree.insert(4)
+binarySearchTree.insert(7)
+binarySearchTree.insert(1)
+binarySearchTree.insert(2)
+binarySearchTree.insert(3)
+binarySearchTree.insert(8)
 
-binarySearchTree.inOrder(root)
+binarySearchTree.inOrder(binarySearchTree.root)
