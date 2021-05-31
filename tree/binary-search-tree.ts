@@ -1,4 +1,3 @@
-import { assert } from 'console';
 import TreeNode from './tree-node'
 
 class BinarySearchTree{
@@ -60,6 +59,52 @@ class BinarySearchTree{
             this.inOrder(root.right)
         }
     }
+
+    postOrder(root : TreeNode | null){
+        if(root){
+            this.inOrder(root.left)
+            this.inOrder(root.right)
+            console.log(root.val + '>')
+        }
+    }
+
+    search(val:Number){
+        if(!this.root){
+            return false
+        }
+        let p:TreeNode | null = this.root
+        while(p){
+            if(p.val === val){
+                return true
+            }
+            if(p.val > val){
+                p = p.left
+            }else{
+                p = p.right
+            }
+        }
+        return false
+    }
+
+    /* //删除节点的right替换删除的节点，left节点树接到right节点树的最左边节点的left上面
+    delete(val:Number){
+        if(!this.root){
+            return null
+        }
+        let p:TreeNode | null = this.root
+        let q:TreeNode | null = null
+        while(p){
+            q = p
+            if(p.val === val){
+                
+            }
+            if(p.val > val){
+                p = p.left
+            }else{
+                p = p.right
+            }
+        }
+    } */
 }
 
 let binarySearchTree = new BinarySearchTree()
@@ -72,3 +117,4 @@ binarySearchTree.insert(3)
 binarySearchTree.insert(8)
 
 binarySearchTree.inOrder(binarySearchTree.root)
+console.log(binarySearchTree.search(9))
