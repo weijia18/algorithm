@@ -11,26 +11,26 @@ function hasGivenPostOrderListOuter(arr){
     }else{
       let rootVal = arr[len - 1]
       let boundaryIndex
-      for(let i = 0; i < len - 2; i++){
+      for(let i = 0; i < len - 1; i++){
         if(arr[i] > rootVal){
           boundaryIndex = i
           break
         }
       }
-      for(let j = boundaryIndex; j < len - 2; j++){
+      for(let j = boundaryIndex; j < len - 1; j++){
         if(arr[j] < rootVal){
-          return false
+          flag = false
+          return
         }else{
           hasGivenPostOrderList(arr.slice(0, boundaryIndex))
           hasGivenPostOrderList(arr.slice(boundaryIndex, len - 2))
         }
       }
     }
+
   }
   hasGivenPostOrderList(arr)
-  if(flag){
-    return true
-  }
+  return flag
 }
 
-console.log(hasGivenPostOrderListOuter([4,8,6,12,16,14,10]))
+console.log(hasGivenPostOrderListOuter([4,8,6,12,16,9,10]))
