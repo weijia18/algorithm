@@ -3,23 +3,37 @@
  * @param {*} root 
  * @param {*} val 
  */
-function printRoutes(root, val){
-  let nodeList = []
-  function findNodes(root, val){
-    if(val - root.val === 0 && root.left === null && root.right === null){
-      nodeList.push(root)
+/* function TreeNode(x) {
+    this.val = x;
+    this.left = null;
+    this.right = null;
+    没有parent属性
+} */
+function printRoutes(root, expectNumber) {
+    let nodeList = []
+    function findNodes(root, val) {
+        if (val - root.val === 0 && root.left === null && root.right === null) {
+            nodeList.push(root)
+        }
+        if (root.left) {
+            findNodes(root.left, val - root.val)
+        }
+        if (root.right) {
+            findNodes(root.right, val - root.val)
+        }
     }
-    findNodes(root.left, val - root.val)
-    findNodes(root.right, val - root.val)
-  }
-
-  findNodes(root, val)
-  nodeList.forEach(p =>{
-    let q = p
-    let tmp = []
-    while(q != null){
-      tmp.unshift(q.val)
+    let inOrderList = []
+    function inOrder(root) {
+        if (root) {
+            inOrder(root.left)
+            inOrderList.push(root.val)
+            inOrder(root.right)
+        }
     }
-    console.log(tmp.join('>'))
-  })
+    inOrder(root)
+    findNodes(root, expectNumber)
+    nodeList.forEach(p => {
+        let index = inOrderList.indexOf(p)
+        console.log(inOrderList.slice(0, index + 1).join('>'))
+    })
 }
