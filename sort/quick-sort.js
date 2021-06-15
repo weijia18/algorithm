@@ -31,8 +31,8 @@ function quickSort(arr) {
 var mrandom = require('../utils/random.js')
 
 let list = []
-for(let i = 1; i < 10; i++){
-  list.push(mrandom(1,10))
+for(let i = 1; i < 100; i++){
+  list.push(mrandom(1,100))
 }
 console.log(list)
 console.log(quickSort(list))
