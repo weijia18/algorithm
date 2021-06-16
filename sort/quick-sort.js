@@ -1,5 +1,3 @@
-const { random } = require("../utils/random")
-
 /**
  * 快排
  * @param {} arr 
@@ -31,12 +29,14 @@ function quickSort(arr) {
 }
 
 
-var mrandom = require('../utils/random.js')
+module.exports = quickSort
+
+/* var mrandom = require('../utils/random.js')
 
 let list = []
 for(let i = 1; i < 1000; i++){
   list.push(mrandom(1,1000))
 }
 console.log(list)
-console.log(quickSort(list))
+console.log(quickSort(list)) */
 
