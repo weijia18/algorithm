@@ -4,9 +4,9 @@
  * @param {*} head2 
  */
 function findFirstCommonNode(head1,head2){
-  let p1 = head1.next
+  let p1 = head1
   while(p1 !== null){
-    let p2 = head2.next
+    let p2 = head2
     while(p2 !== null){
       if(p1 === p2){
         return p1

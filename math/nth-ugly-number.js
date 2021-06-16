@@ -5,9 +5,9 @@
 function getUglyNumber(n){
   let res = []
   res[0] = 1
-  pos2 = 0
-  pos3 = 0
-  pos5 = 0
+  let pos2 = 0
+  let pos3 = 0
+  let pos5 = 0
   for(let i = 1; i < n; i++){
     let k = Math.min(res[pos2]*2, res[pos3]*3, res[pos5]*5)
     res[i] = k
