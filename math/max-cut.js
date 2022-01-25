@@ -11,7 +11,7 @@ function maxCut(n, cache = {}){
     return 1
   }
   for(let i = n - 1; i >= Math.floor(n / 2); i--){
-    let tmp = Math.max((cache[i] || maxCut(i, cache)) * (cache[n - i] || maxCut((n - i), cache[i])), n)
+    let tmp = Math.max((cache[i] || maxCut(i, cache)) * (cache[n - i] || maxCut((n - i), cache)), n)
     /* cache[i] = maxCut(i)
     cache[n - i] = maxCut(n - i)  */
     if( tmp > maxRes){
@@ -23,4 +23,4 @@ function maxCut(n, cache = {}){
 }
 
 
-console.log(maxCut(1348))
+console.log(maxCut(8))
