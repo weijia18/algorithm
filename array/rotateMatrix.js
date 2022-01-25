@@ -9,7 +9,7 @@ var rotate = function (matrix) {
     while (coefficients.length > 0) {
         let coefficient = coefficients.pop()
         let row = coefficient.split('')[0]
-        let col = coefficient.split('')[0]
+        let col = coefficient.split('')[1]
         let rowChange = col
         let colChange = len - 1 - row
         let coefficientChange = "" + rowChange + colChange
