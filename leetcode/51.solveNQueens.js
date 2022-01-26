@@ -10,6 +10,10 @@ var solveNQueens = function (n) {
             for (let i = 0; i < n; i++) {
                 let rowIndex = rowIndexs[i]
                 let colIndex = colIndexs[i]
+                /**
+                 *  js对指定位置的字符赋值不会生效
+                 *  需要转化为数组
+                 */
                 let s = matrix[rowIndex]
                 s = s.split('')
                 s[colIndex] = 'Q'
