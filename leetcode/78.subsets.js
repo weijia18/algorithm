@@ -1,13 +1,13 @@
-var combine = function (n, k) {
-
-    let parts = []
+var subsets = function (nums) {
+    let len = nums.length
     let result = []
+    let parts = []
     var backtrack = function (t) {
-        if (t >= k) {
+        if (t >= len) {
             result.push(parts)
         } else {
-            for (let i = 1; i <= n; i++) {
-                if (parts.every(v => i > v)) {
+            for (let i = 0; i <= 1; i++) {
+                if (i === 1) {
                     parts.push(i)
                     backtrack(t + 1)
                     parts.pop()
@@ -15,7 +15,6 @@ var combine = function (n, k) {
             }
         }
     }
-
     backtrack(0)
     return result
 }
