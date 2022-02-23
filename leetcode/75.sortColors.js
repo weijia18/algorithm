@@ -6,7 +6,7 @@ var sortColors = function (nums) {
         2: 0
     }
     for (let i = 0; i < len; i++) {
-        _map[nums[i]] += _map[nums[i]] || 0
+        _map[nums[i]] += 1
     }
     for (let i = 0; i < _map[0]; i++) {
         nums[i] = 0
